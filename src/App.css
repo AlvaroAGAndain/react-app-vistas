@@ -92,9 +92,9 @@ button:hover {
 }
 
 .content {
-  padding: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
+  flex: 1;
+  overflow: auto;
+  height: calc(100vh - 64px); /* Ajusta 64px según la altura de tu navbar */
 }
 
 /* Layout principal */

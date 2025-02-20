@@ -5,7 +5,7 @@ function Navbar() {
     <nav className="navbar">
       <div className="nav-container">
         <Link to="/home" className="nav-logo">
-          Mi App
+          OneApp
         </Link>
         <ul className="nav-menu">
 
