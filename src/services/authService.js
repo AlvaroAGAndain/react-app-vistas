@@ -1,17 +1,15 @@
-const API_URL = 'http://localhost:3000/dev'; // Ajusta esto a tu URL de backend
+const API_URL = 'https://l0f757izxl.execute-api.us-east-2.amazonaws.com/poc/users/login';
 
 const authService = {
   login: async (email, password) => {
     try {
-      const response = await fetch(`${API_URL}/login`, {
+      const response = await fetch(API_URL, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Accept': 'application/json',
-          'Access-Control-Allow-Origin': '*',
+          'Accept': 'application/json'
         },
-        credentials: 'include', // Si necesitas enviar cookies
-        mode: 'cors', // Asegúrate de que estás usando modo cors
+        mode: 'cors',
         body: JSON.stringify({ email, password }),
       });
 
@@ -24,7 +22,6 @@ const authService = {
 
       const data = await response.json();
       
-      // Guardamos el token en localStorage
       if (data.token) {
         localStorage.setItem('token', data.token);
       }
