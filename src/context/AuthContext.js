@@ -9,6 +9,7 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const token = authService.getCurrentUser();
+    console.log('token', token);
     if (token) {
       setUser({ token }); // Aquí podrías decodificar el token o hacer una petición para obtener los datos del usuario
     }
@@ -38,5 +39,6 @@ export const useAuth = () => {
   if (!context) {
     throw new Error('useAuth debe ser usado dentro de un AuthProvider');
   }
+  console.log('context', context);
   return context;
 }; 

@@ -15,7 +15,7 @@ const authService = {
         body: JSON.stringify({ email, password }),
       });
 
-      console.log('RESPONSE', response);
+
 
       if (!response.ok) {
         const errorData = await response.json();
@@ -23,11 +23,11 @@ const authService = {
       }
 
       const data = await response.json();
-      
+        console.log(data);
       // Guardamos el token en localStorage
-      if (data.token) {
-        localStorage.setItem('token', data.token);
-      }
+    
+        localStorage.setItem('user', data.user.name);
+     
 
       return data;
     } catch (error) {
@@ -37,11 +37,11 @@ const authService = {
   },
 
   logout: () => {
-    localStorage.removeItem('token');
+    localStorage.removeItem('user');
   },
 
   getCurrentUser: () => {
-    return localStorage.getItem('token');
+    return localStorage.getItem('user');
   },
 };
 
